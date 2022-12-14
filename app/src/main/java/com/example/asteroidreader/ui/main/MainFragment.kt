@@ -50,6 +50,17 @@ class MainFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.show_week_menu -> {
+                viewModel.getWeekAsteroids()
+            }
+            R.id.show_today_menu -> {
+                viewModel.getTodayAsteroids()
+            }
+            R.id.show_saved_menu -> {
+                viewModel.getSavedAsteroids()
+            }
+        }
         return true
     }
 
@@ -65,6 +76,7 @@ class MainFragment : Fragment() {
                         Picasso.get()
                             .load(it.url)
                             .into(binding.activityMainImageOfTheDay);
+                        binding.activityMainImageOfTheDay.contentDescription = it.title
 
                     }
                 }

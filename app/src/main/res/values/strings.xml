@@ -24,4 +24,6 @@
     <string name="asteroid_code_name">Asteroid Code Name</string>
     <string name="asteroid_close_approach_date">Asteroid Close Approach Date</string>
     <string name="ispotentiallyhazardous">Is Pottentially Hazardous</string>
+    <string name="details_iv_content_description_format">NASA\'s picture of day: %s</string>
+    <string name="click_to_get_info">Click To Get Infoormation</string>
 </resources>

@@ -19,6 +19,7 @@ class AsteroidAdapter(private val clickListener: AsteroidClickListener)  :
     inner class ViewHolder(private val binding: AsteroidItemBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(asteroid: Asteroid , itemClickListener: AsteroidClickListener){
             binding.asteroid = asteroid
+
             binding.clickListener = itemClickListener
             binding.executePendingBindings()
         }

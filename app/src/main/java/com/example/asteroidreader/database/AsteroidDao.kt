@@ -15,4 +15,7 @@ interface AsteroidDao {
 
     @Query("SELECT * FROM asteroids ORDER BY closeApproachDate ASC")
     fun getAllAsteroids(): Flow<List<Asteroid>>
+
+    @Query("SELECT * FROM asteroids WHERE closeApproachDate >= :startDate AND closeApproachDate <= :endDate ORDER BY closeApproachDate ASC")
+    fun getAllAsteroidsSortedByDate(startDate: String, endDate: String): Flow<List<Asteroid>>
 }

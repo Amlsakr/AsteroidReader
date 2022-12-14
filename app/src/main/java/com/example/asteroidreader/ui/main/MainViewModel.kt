@@ -68,4 +68,30 @@ class MainViewModel (val db :AsteroidDB): ViewModel(){
     fun onAsteroidDetailsNavigated() {
         _navigateToAsteroidDetails.value = null
     }
+
+
+    fun getWeekAsteroids() {
+        viewModelScope.launch {
+            db.asteroidDao().getAllAsteroidsSortedByDate(getDate(), getDate(7))
+                .collect {
+                    _asteroidList.value = it
+                }
+        }
+    }
+
+    fun getTodayAsteroids() {
+        viewModelScope.launch {
+            db.asteroidDao().getAllAsteroidsSortedByDate(getDate(), getDate()).collect {
+                _asteroidList.value = it
+            }
+        }
+    }
+
+    fun getSavedAsteroids() {
+        viewModelScope.launch {
+            db.asteroidDao().getAllAsteroids().collect {
+                _asteroidList.value = it
+            }
+        }
+    }
 }
